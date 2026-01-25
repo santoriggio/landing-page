@@ -1,0 +1,45 @@
+---
+import '../global.css';
+import Header from './header.astro';
+import Footer from './footer.astro';
+
+const { title = 'Home', description = 'Benvenuti su Santo Riggio, sviluppatore mobile ad abbonamento' } =
+  Astro.props;
+const fullTitle = `Santo Riggio - ${title}`;
+---
+
+<!doctype html>
+<html lang='it' class='scroll-smooth'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/x-icon' href='/favicon.ico' />
+    <meta name='generator' content={Astro.generator} />
+    <meta name='description' content={description} />
+    <meta name='author' content='Santo Riggio' />
+
+    <!-- Open Graph / Facebook -->
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content='https://www.santoriggio.it/' />
+    <meta property='og:title' content={fullTitle} />
+    <meta property='og:description' content={description} />
+    <meta property='og:image' content='https://www.santoriggio.it/og-graph.png' />
+
+    <!-- Twitter -->
+    <meta property='twitter:card' content='summary_large_image' />
+    <meta property='twitter:url' content='https://www.santoriggio.it/' />
+    <meta property='twitter:title' content={fullTitle} />
+    <meta property='twitter:description' content={description} />
+    <meta property='twitter:image' content='https://www.santoriggio.it/og-graph.png' />
+
+    <title>{fullTitle}</title>
+    <link rel='preload' href='/fonts/archivo-variable.ttf' as='font' type='font/ttf' crossorigin />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
