@@ -13,29 +13,15 @@
   --text-h3: 1.625rem;
   --text-h4: 1.25rem;
   --font-sans: 'Archivo';
-  --color-primary: #0a6fff;
-  --color-dark: #000d1b;
-  --color-darker: #010102;
+  --color-primary: #1bb549;
+  --color-primary-dark: #006f21;
 
-  @keyframes fadeInUp {
+  @keyframes scroll {
     0% {
-      opacity: 0;
-      transform: translateY(20px);
+      transform: translateX(0);
     }
     100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(20px);
+      transform: translateX(-50%);
     }
   }
 }
@@ -80,16 +66,4 @@
 
 @utility px-container {
   @apply w-[min(1280px,100%-2rem)] mx-auto;
-}
-
-@utility toast {
-  @apply fixed z-[9999] bg-gray-800 text-white px-5 py-4 shadow-md text-base opacity-0 translate-y-5 animate-[fadeInUp_0.2s_ease-out_forwards];
-}
-
-@utility toast-success {
-  @apply bg-green-700;
-}
-
-@utility toast-error {
-  @apply bg-red-700;
 }

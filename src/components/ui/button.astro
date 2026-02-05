@@ -1,0 +1,40 @@
+---
+import { twMerge } from 'tailwind-merge';
+import type { HTMLAttributes } from 'astro/types';
+
+type Variant = 'primary' | 'secondary';
+
+type Props =
+  | ({
+      variant?: Variant;
+    } & HTMLAttributes<'button'>)
+  | ({
+      variant?: Variant;
+      to: string;
+    } & HTMLAttributes<'a'>);
+
+const { variant = 'primary', ...props } = Astro.props;
+
+const variantMap: Record<Variant, string> = {
+  primary: 'bg-gradient-to-t from-primary-dark to-primary text-white',
+  secondary: 'bg-white border border-primary text-primary',
+};
+
+const className = twMerge(
+  'font-medium cursor-pointer flex items-center justify-center gap-2 px-6 py-3 rounded-lg hover:opacity-90 transition-all',
+  variantMap[variant],
+  props.class,
+);
+---
+
+{
+  'to' in props ? (
+    <a href={props.to} class={className} {...props}>
+      <slot />
+    </a>
+  ) : (
+    <button class={className} {...props}>
+      <slot />
+    </button>
+  )
+}

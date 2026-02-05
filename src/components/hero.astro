@@ -1,0 +1,20 @@
+---
+import Button from './ui/button.astro';
+---
+
+<section
+  class='h-[calc(100vh-88px)] bg-[url("/hero-bg.png")] bg-cover bg-bottom flex flex-col md:flex-row items-center gap-10 py-20'>
+  <div class='px-container flex flex-col gap-4'>
+    <h1 class='max-w-3xl'>
+      <span class='text-primary'>Sviluppo app mobile</span> in abbonamento senza preventivi né stress
+    </h1>
+    <p class='max-w-3xl text-gray-600'>
+      Sono Santo Riggio. Sviluppo app React Native con continuità, trasparenza e metodo. Niente overhead,
+      niente sorprese. Solo codice che funziona e cresce con te.
+    </p>
+    <div class='mt-2 flex flex-col md:flex-row md:items-center gap-4'>
+      <Button variant='secondary'>Prenota una call</Button>
+      <Button>Scrivimi su Linkedin</Button>
+    </div>
+  </div>
+</section>
