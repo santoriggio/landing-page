@@ -1,0 +1,55 @@
+---
+import Badge from './ui/badge.astro';
+---
+
+<section class='flex flex-col gap-16 px-container py-container'>
+  <div class='flex flex-col gap-5 text-center items-center'>
+    <Badge>Come funziona</Badge>
+    <h2>Come funziona il modello ad abbonamento</h2>
+    <p class='text-gray-500'>
+      Paghi per giornate di lavoro, spesso con preventivi gonfiati. Se il progetto si allunga, i costi
+      salgono. Nessuna continuità dopo il lancio.
+    </p>
+  </div>
+  <div class='flex flex-col gap-16'>
+    <div class='grid md:grid-cols-2 gap-6 items-center'>
+      <div class='order-2 md:order-1 flex flex-col gap-3'>
+        <h3>Ti abboni ad uno dei piani</h3>
+        <p class='text-gray-500'>
+          Dopo l’abbonamento, riceverai un’email di onboarding per darmi accesso alle repository dei tuoi
+          progetti, all’app di messaggistica (es. Slack) e a quella per la gestione delle task (es. Linear).
+        </p>
+      </div>
+      <img
+        src='/step1.webp'
+        alt='Step 1'
+        class='order-1 md:order-2 object-cover rounded-lg w-full h-80 md:h-105'
+      />
+    </div>
+    <div class='grid md:grid-cols-2 gap-6 items-center'>
+      <img src='/step2.webp' alt='Step 2' class='object-cover rounded-lg w-full h-80 md:h-105' />
+      <div class='flex flex-col gap-3'>
+        <h3>Mi assegni le task da fare</h3>
+        <p class='text-gray-500'>
+          Crea una richiesta di sviluppo dalla tua app di gestione delle task, con tutte le informazioni
+          necessarie per completarla. Riceverai una stima prima di ogni lavorazione, così da sapere sempre
+          quanto ci metterò.
+        </p>
+      </div>
+    </div>
+    <div class='grid md:grid-cols-2 gap-6 items-center'>
+      <div class='order-2 md:order-1 flex flex-col gap-3'>
+        <h3>Ricevi il codice pronto</h3>
+        <p class='text-gray-500'>
+          Apro la PR nella repository del tuo progetto. Consegno il codice testato e pronto per la produzione.
+          E se qualcosa non quadra, Revisioni illimitate!
+        </p>
+      </div>
+      <img
+        src='/step3.webp'
+        alt='Step 3'
+        class='order-1 md:order-2 object-cover rounded-lg w-full h-80 md:h-105'
+      />
+    </div>
+  </div>
+</section>

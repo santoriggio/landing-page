@@ -1,0 +1,39 @@
+---
+import Accordion from './ui/accordion.astro';
+import Badge from './ui/badge.astro';
+
+const faqs = [
+  {
+    question: 'Che tecnologie usi?',
+    answer:
+      'Uso principalmente React, Next.js e Typescript. Con questo stack riesco a essere rapido e a consegnare codice di alta qualità. Ma non ho problemi a utilizzare altre teconologie se necessario: mi è capitato di fare delle task di BE in Nest.js. La mia priorità assoluta è il tuo risultato, qualsiasi linguaggio serva per ottenerlo.',
+  },
+  {
+    question: 'Posso annullare l’abbonamento in qualsiasi momento?',
+    answer:
+      'Sì, puoi annullare l’abbonamento in qualsiasi momento. Non ci sono contratti a lungo termine o penali per la cancellazione. Se decidi di annullare, continuerai ad avere accesso al servizio fino alla fine del periodo di fatturazione corrente.',
+  },
+  {
+    question: 'Come gestisci le revisioni e le modifiche al codice?',
+    answer:
+      'Offro revisioni illimitate per assicurarmi che il codice consegnato soddisfi le tue aspettative. Se qualcosa non quadra o se hai bisogno di modifiche, basta farmelo sapere e lavorerò per risolvere il problema fino a quando non sarai completamente soddisfatto.',
+  },
+];
+---
+
+<section class='flex flex-col gap-16 px-container py-container'>
+  <div class='flex flex-col gap-5 text-center items-center'>
+    <Badge>FAQ</Badge>
+    <h2>Domande frequenti</h2>
+    <p class='text-gray-500'>Ecco le domande più frequenti poste dai nostri utenti.</p>
+  </div>
+  <div class='flex flex-col gap-4'>
+    {
+      faqs.map((faq, index) => (
+        <Accordion title={faq.question} defaultOpen={index === 0}>
+          {faq.answer}
+        </Accordion>
+      ))
+    }
+  </div>
+</section>

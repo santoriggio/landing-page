@@ -1,0 +1,63 @@
+---
+import Badge from './ui/badge.astro';
+import Button from './ui/button.astro';
+import Check from './ui/icons/check.astro';
+import Close from './ui/icons/close.astro';
+import Logo from './ui/logo.astro';
+
+const features = [
+  { name: 'Costo prevedibile', santoRiggio: true, agencies: false, freelance: true },
+  { name: 'Continuità di sviluppo', santoRiggio: true, agencies: true, freelance: false },
+  { name: 'Zero lock-in contrattuale', santoRiggio: true, agencies: false, freelance: true },
+  { name: 'Comunicazione diretta', santoRiggio: true, agencies: true, freelance: false },
+  { name: 'Nessun overhead nascosto', santoRiggio: true, agencies: false, freelance: false },
+];
+---
+
+<section class='flex flex-col gap-10 px-container py-container'>
+    <div class='flex flex-col gap-5 text-center items-center'>
+      <Badge>Confronto</Badge>
+      <h2>Sono l'opzione più sicura</h2>
+      <p class='text-gray-500'>
+        Ecco come il modello ad abbonamento si confronta con le alternative tradizionali.
+      </p>
+    </div>
+<div class='overflow-x-auto mt-6'>
+  <div class='grid grid-cols-4 text-center min-w-280'>
+    <div
+      class='flex items-center justify-center p-4 bg-[#FAFAFA] border border-[#E5EAF0] border-r-0'>
+      Caratteristiche
+    </div>
+    <div
+      class='flex items-center justify-center p-4 bg-linear-to-t from-primary/20 to-[#FAFAFA]/20 border border-[#E5EAF0] border-r-0'>
+      <Logo />
+    </div>
+    <div
+      class='font-semibold text-2xl flex items-center justify-center p-4 bg-[#FAFAFA] border border-[#E5EAF0] border-r-0'>
+      Agenzie
+    </div>
+    <div
+      class='font-semibold text-2xl flex items-center justify-center p-4 bg-[#FAFAFA] border border-[#E5EAF0]'>
+      Freelance
+    </div>
+    {
+      features.map((feature) => (
+          <div class='p-4 border border-[#E5EAF0] text-gray-500'>{feature.name}</div>
+          <div class='p-4 border border-[#E5EAF0] flex items-center justify-center'>
+            {feature.santoRiggio ? <Check /> : <Close />}
+          </div>
+          <div class='p-4 border border-[#E5EAF0] flex items-center justify-center'>
+            {feature.agencies ? <Check /> : <Close />}
+          </div>
+          <div class='p-4 border border-[#E5EAF0] flex items-center justify-center'>
+            {feature.freelance ? <Check /> : <Close />}
+          </div>
+      ))
+    }
+  </div>
+</div>
+    <div class='flex gap-4 justify-center items-center'>
+      <Button>Scopri</Button>
+      <Button variant='ghost'>Altro</Button>
+    </div>
+  </section>

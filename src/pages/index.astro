@@ -3,24 +3,23 @@ import Hero from '../components/hero.astro';
 import Layout from '../components/layout.astro';
 import Companies from '../components/companies.astro';
 import WhoAmI from '../components/who-am-i.astro';
-import Badge from '../components/ui/badge.astro';
-import ComparisonTable from '../components/comparison-table.astro';
+import Comparison from '../components/comparison.astro';
+import HowItWorks from '../components/how-it-works.astro';
+import FAQ from '../components/faq.astro';
+import Button from '../components/ui/button.astro';
 ---
 
 <Layout>
   <Hero />
   <Companies />
   <WhoAmI />
-  <section class='flex flex-col gap-10 px-container py-container'>
-    <div class='flex flex-col gap-5 text-center items-center'>
-      <Badge>Confronto</Badge>
-      <h2>Sono l'opzione più sicura</h2>
-      <p class='text-gray-500'>
-        Ecco come il modello ad abbonamento si confronta con le alternative tradizionali.
-      </p>
-    </div>
-    <div>
-      <ComparisonTable />
-    </div>
-  </section>
+  <Comparison />
+  <HowItWorks />
+  <FAQ />
+  <div
+    class='px-container rounded-xl bg-linear-to-r from-primary-dark to-primary text-white flex flex-col gap-4 items-center text-center py-19.5'>
+    <h2>Prenota una call di 45 minuti</h2>
+    <p>Scegli quello che fa per te. Nessun vincolo, nessuna sorpresa.</p>
+    <Button variant='secondary'>Prenota una call</Button>
+  </div>
 </Layout>

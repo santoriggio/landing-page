@@ -1,0 +1,30 @@
+---
+type Props = {
+  title: string;
+  defaultOpen?: boolean;
+};
+
+const { title, defaultOpen = false } = Astro.props;
+---
+
+<details class='group border-b pb-4 border-gray-300' open={defaultOpen}>
+  <summary class='flex items-start justify-between gap-4 cursor-pointer list-none'>
+    <b class='text-wrap'>{title}</b>
+    <svg
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      class='shrink-0 transition-transform group-open:rotate-45'>
+      <path
+        d='M6.54571 12.5625H11.1411V17.1579C11.1411 17.625 11.5253 18.0167 11.9999 18.0167C12.4746 18.0167 12.8588 17.625 12.8588 17.1579V12.5625H17.4542C17.9213 12.5625 18.313 12.1783 18.313 11.7037C18.313 11.2291 17.9213 10.8449 17.4542 10.8449H12.8588V6.24944C12.8588 5.78237 12.4746 5.39062 11.9999 5.39062C11.5253 5.39062 11.1411 5.78237 11.1411 6.24944V10.8449H6.54571C6.07863 10.8449 5.68689 11.2291 5.68689 11.7037C5.68689 12.1783 6.07863 12.5625 6.54571 12.5625Z'
+        fill='#171717'></path>
+    </svg>
+  </summary>
+  <div class='mt-3'>
+    <p class='text-gray-500'>
+      <slot />
+    </p>
+  </div>
+</details>
