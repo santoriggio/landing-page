@@ -1,0 +1,22 @@
+---
+import Badge from './ui/badge.astro';
+import Card from './ui/card.astro';
+---
+
+<section class='flex flex-col gap-16 px-container py-container'>
+  <div class='flex flex-col gap-5 text-center items-center'>
+    <Badge>Prezzi</Badge>
+    <h2>Due piani semplici</h2>
+    <p class='text-gray-500'>Scegli quello che fa per te. Nessun vincolo, nessuna sorpresa.</p>
+  </div>
+  <div class='grid md:grid-cols-2 gap-6'>
+    <Card>
+      <h2>Settimanale</h2>
+      <p>Perfetto per chi vuole cominciare</p>
+    </Card>
+    <Card>
+      <h2>Mensile</h2>
+      <p>Il più amato</p>
+    </Card>
+  </div>
+</section>

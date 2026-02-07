@@ -1,0 +1,9 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+const { class: className, ...props } = Astro.props;
+---
+
+<div class={twMerge('p-6 rounded-lg bg-white drop-shadow-md', className)} {...props}>
+  <slot />
+</div>

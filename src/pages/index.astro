@@ -7,6 +7,8 @@ import Comparison from '../components/comparison.astro';
 import HowItWorks from '../components/how-it-works.astro';
 import FAQ from '../components/faq.astro';
 import Button from '../components/ui/button.astro';
+import Testimonials from '../components/testimonials.astro';
+import Pricing from '../components/pricing.astro';
 ---
 
 <Layout>
@@ -15,11 +17,13 @@ import Button from '../components/ui/button.astro';
   <WhoAmI />
   <Comparison />
   <HowItWorks />
+  <Pricing />
+  <Testimonials />
   <FAQ />
   <div
-    class='px-container rounded-xl bg-linear-to-r from-primary-dark to-primary text-white flex flex-col gap-4 items-center text-center py-19.5'>
+    class='relative top-20 px-container rounded-xl bg-linear-to-l from-primary-dark to-primary text-white flex flex-col gap-4 items-center text-center px-4 py-8 md:py-16'>
     <h2>Prenota una call di 45 minuti</h2>
-    <p>Scegli quello che fa per te. Nessun vincolo, nessuna sorpresa.</p>
+    <p class='text-gray-100'>Scegli quello che fa per te. Nessun vincolo, nessuna sorpresa.</p>
     <Button variant='secondary'>Prenota una call</Button>
   </div>
 </Layout>
