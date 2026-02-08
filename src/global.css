@@ -78,3 +78,45 @@
 @utility px-container {
   @apply w-[min(1280px,100%-2rem)] mx-auto;
 }
+
+#termsfeed-com---nb {
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
+  max-width: 600px;
+}
+
+.cc-nb-title {
+  font-size: 1rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.cc-nb-buttons-container {
+  display: flex !important;
+}
+
+.cc-nb-text-container p,
+.cc-nb-buttons-container button {
+  font-size: 0.875rem !important;
+}
+
+.cc-nb-main-container {
+  padding: 0 !important;
+}
+
+@media only screen and (max-width: 768px) {
+  #termsfeed-com---nb {
+    max-width: none;
+    width: 100%;
+  }
+
+  .cc-nb-text-container {
+    height: 80px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+  }
+
+  .cc-nb-buttons-container button {
+    padding: 0;
+  }
+}

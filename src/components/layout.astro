@@ -2,6 +2,7 @@
 import '../global.css';
 import Header from './header.astro';
 import Footer from './footer.astro';
+import CookieConsent from './cookie-consent.astro';
 
 const { title = 'Home', description = 'Benvenuti su Santo Riggio, sviluppatore mobile ad abbonamento' } =
   Astro.props;
@@ -34,6 +35,7 @@ const fullTitle = `Santo Riggio - ${title}`;
 
     <title>{fullTitle}</title>
     <link rel='preload' href='/fonts/archivo-variable.ttf' as='font' type='font/ttf' crossorigin />
+    <CookieConsent />
   </head>
   <body>
     <Header />
