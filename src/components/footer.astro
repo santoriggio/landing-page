@@ -6,27 +6,29 @@ import Logo from './ui/logo.astro';
 <footer class='bg-black text-white py-container pt-40'>
   <div class='px-container flex flex-col gap-8'>
     <section class='flex flex-col md:flex-row justify-between md:items-center gap-6'>
-      <Logo />
+      <a href='/' aria-label='Home'><Logo /></a>
       <div class='flex gap-4 md:gap-6 flex-wrap'>
-        <a href='/#prezzi' class='hover:text-gray-300'>Prezzi</a>
-        <a href='/#confronto' class='hover:text-gray-300'>Confronto</a>
-        <a href='/#come-funziona' class='hover:text-gray-300'>Come funziona</a>
-        <a href='/#contatti' class='hover:text-gray-300'>Contatti</a>
+        <a href='/#prezzi' class='hover:text-primary transition-colors'>Prezzi</a>
+        <a href='/#confronto' class='hover:text-primary transition-colors'>Confronto</a>
+        <a href='/#come-funziona' class='hover:text-primary transition-colors'>Come funziona</a>
+        <a href='/#contatti' class='hover:text-primary transition-colors'>Contatti</a>
       </div>
       <a
-        href='https://www.linkedin.com/in/maurizio-rispoli/'
+        href='https://www.linkedin.com/in/santoriggio/'
         target='_blank'
         rel='noopener noreferrer'
-        class='hover:text-primary'>
+        class='hover:text-primary transition-colors'>
         <Linkedin />
       </a>
     </section>
     <section class='border-t border-white pt-6 flex flex-col md:flex-row gap-6 justify-between'>
       <p>© 2026 Santo Riggio. Tutti i diritti riservati.</p>
       <div class='flex gap-4 md:gap-6 flex-wrap'>
-        <a href='/privacy-policy' class='underline hover:text-gray-300'>Privacy Policy</a>
-        <a href='/termini-condizioni' class='underline hover:text-gray-300'>Termini e Condizioni</a>
-        <a href='/cookie-policy' class='underline hover:text-gray-300'>Cookie Policy</a>
+        <a href='/privacy-policy' class='underline hover:text-primary transition-colors'>Privacy Policy</a>
+        <a href='/termini-condizioni' class='underline hover:text-primary transition-colors'
+          >Termini e Condizioni</a
+        >
+        <a href='/cookie-policy' class='underline hover:text-primary transition-colors'>Cookie Policy</a>
       </div>
     </section>
   </div>

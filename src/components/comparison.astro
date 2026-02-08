@@ -14,7 +14,7 @@ const features = [
 ];
 ---
 
-<section class='flex flex-col gap-10 px-container py-container'>
+<section class='flex flex-col gap-10 px-container py-container' id='confronto'>
     <div class='flex flex-col gap-5 text-center items-center'>
       <Badge>Confronto</Badge>
       <h2>Sono l'opzione più sicura</h2>
@@ -22,7 +22,7 @@ const features = [
         Ecco come il modello ad abbonamento si confronta con le alternative tradizionali.
       </p>
     </div>
-<div class='overflow-x-auto mt-6'>
+<div class='overflow-x-auto md:mt-6'>
   <div class='grid grid-cols-4 text-center min-w-280'>
     <div
       class='flex items-center justify-center p-4 bg-[#FAFAFA] border border-[#E5EAF0] border-r-0'>
@@ -57,7 +57,7 @@ const features = [
   </div>
 </div>
     <div class='flex gap-4 justify-center items-center'>
-      <Button>Scopri</Button>
-      <Button variant='ghost'>Altro</Button>
+      <Button>Iniziamo</Button>
+      <Button variant='ghost' to="/#come-funziona">Come funziona</Button>
     </div>
   </section>

@@ -9,6 +9,23 @@ const __dirname = path.dirname(__filename);
 const PUBLIC_DIR = path.join(__dirname, '..', 'public');
 const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.tiff', '.bmp'];
 
+async function getImageFiles(dir) {
+  let imageFiles = [];
+  const items = await fs.readdir(dir, { withFileTypes: true });
+
+  for (const item of items) {
+    const fullPath = path.join(dir, item.name);
+
+    if (item.isDirectory()) {
+      imageFiles.push(...(await getImageFiles(fullPath)));
+    } else if (IMAGE_EXTENSIONS.includes(path.extname(item.name).toLowerCase())) {
+      imageFiles.push(fullPath);
+    }
+  }
+
+  return imageFiles;
+}
+
 async function convertToWebP(imagePath) {
   const ext = path.extname(imagePath);
   const outputPath = imagePath.replace(ext, '.webp');
@@ -44,7 +61,8 @@ async function main() {
   console.log('🚀 Inizio conversione immagini in WebP...\n');
 
   try {
-    const imageFiles = [];
+    const imageFiles = await getImageFiles(PUBLIC_DIR);
+
     const items = await fs.readdir(PUBLIC_DIR, { withFileTypes: true });
 
     for (const item of items) {

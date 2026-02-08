@@ -4,12 +4,12 @@ import Logo from './ui/logo.astro';
 ---
 
 <header class='px-container py-5 flex items-center justify-between gap-4'>
-  <Logo />
+  <a href='/' aria-label='Home'><Logo /></a>
   <div class='hidden md:flex items-center gap-6 px-5 py-3 rounded-lg bg-white drop-shadow-md'>
-    <a href='#'>Prezzi</a>
-    <a href='#'>Confronto</a>
-    <a href='#'>Come funziona</a>
-    <a href='#'>Contatti</a>
+    <a href='/#prezzi' class='transition-colors hover:text-primary'>Prezzi</a>
+    <a href='/#confronto' class='transition-colors hover:text-primary'>Confronto</a>
+    <a href='/#come-funziona' class='transition-colors hover:text-primary'>Come funziona</a>
+    <a href='/#contatti' class='transition-colors hover:text-primary'>Contatti</a>
   </div>
-  <Button>Prenota</Button>
+  <Button to='/#contatti'>Prenota</Button>
 </header>

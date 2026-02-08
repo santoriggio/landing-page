@@ -1,22 +1,72 @@
 ---
 import Badge from './ui/badge.astro';
 import Card from './ui/card.astro';
+import Button from './ui/button.astro';
+import Check from './ui/icons/check.astro';
+import DocumentPlus from './ui/icons/document-plus.astro';
+
+const plans = [
+  {
+    title: 'Prova settimanale',
+    subtitle: 'Una sola volta',
+    price: '€19',
+    period: '/settimana',
+    features: ['Una settimana di sviluppo', 'Accesso diretto a Santo', 'Nessun vincolo successivo'],
+    buttonText: 'Prenota una call',
+  },
+  {
+    title: 'Abbonamento mensile',
+    subtitle: 'al mese',
+    price: '€29',
+    period: '/mese',
+    features: [
+      'Sviluppo continuo React Native',
+      'Supporto e manutenzione',
+      'Guida tecnica e organizzativa',
+      'Pausa in qualsiasi momento',
+      'Comunicazione diretta',
+    ],
+    buttonText: 'Prenota una call',
+  },
+];
 ---
 
-<section class='flex flex-col gap-16 px-container py-container'>
+<section class='flex flex-col gap-10 md:gap-16 px-container py-container' id='prezzi'>
   <div class='flex flex-col gap-5 text-center items-center'>
     <Badge>Prezzi</Badge>
     <h2>Due piani semplici</h2>
     <p class='text-gray-500'>Scegli quello che fa per te. Nessun vincolo, nessuna sorpresa.</p>
   </div>
   <div class='grid md:grid-cols-2 gap-6'>
-    <Card>
-      <h2>Settimanale</h2>
-      <p>Perfetto per chi vuole cominciare</p>
-    </Card>
-    <Card>
-      <h2>Mensile</h2>
-      <p>Il più amato</p>
-    </Card>
+    {
+      plans.map((plan) => (
+        <Card class='flex flex-col gap-6'>
+          <div class='flex flex-col gap-6'>
+            <DocumentPlus />
+            <div class='flex flex-col gap-3'>
+              <h3>{plan.title}</h3>
+              <p class='text-gray-500 text-sm'>{plan.subtitle}</p>
+            </div>
+            <div class='flex items-baseline gap-2'>
+              <h4 class='text-[28px] font-bold'>{plan.price}</h4>
+              <span class='text-gray-500'>{plan.period}</span>
+            </div>
+          </div>
+
+          <hr class='border-gray-200' />
+
+          <ul class='flex flex-col gap-4 grow'>
+            {plan.features.map((feature) => (
+              <li class='flex items-center gap-3 text-gray-500'>
+                <Check />
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <Button>{plan.buttonText}</Button>
+        </Card>
+      ))
+    }
   </div>
 </section>
