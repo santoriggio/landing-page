@@ -4,7 +4,7 @@ import Header from './header.astro';
 import Footer from './footer.astro';
 import CookieConsent from './cookie-consent.astro';
 
-const { title = 'Home', description = 'Benvenuti su Santo Riggio, sviluppatore mobile ad abbonamento' } =
+const { title = 'Home', description = 'Semplifica il tuo sviluppo mobile con il modello di abbonamento di Santo Riggio. Approfitta di consegne rapide, prezzi chiari e qualità garantita senza problemi di assunzione.' } =
   Astro.props;
 const fullTitle = `Santo Riggio - ${title}`;
 ---
@@ -35,6 +35,33 @@ const fullTitle = `Santo Riggio - ${title}`;
 
     <title>{fullTitle}</title>
     <link rel='preload' href='/fonts/archivo-variable.ttf' as='font' type='font/ttf' crossorigin />
+    <script type="application/ld+json">
+      {
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Santo Riggio",
+          "url": "https://www.santoriggio.it",
+          "sameAs": [
+            "https://www.linkedin.com/in/santoriggio/"
+          ],
+          "jobTitle": "Software Engineer",
+          "description": "Sviluppatore mobile specializzato in React Native e soluzioni mobile moderne. Offro servizi di sviluppo in abbonamento per startup e software house.",
+          "knowsAbout": [
+            "React Native", "TypeScript", "Sviluppo Mobile", "Mobile Development"
+          ],
+            "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "IT",
+            "addressLocality": "Cerro Maggiore",
+            "addressRegion": "MI",
+            "postalCode": "20023",
+            "streetAddress": "Via Felice Gaio, 3/4A"
+            },
+          "email": "mailto:info@santoriggio.it"
+        })
+      }
+    </script>
     <CookieConsent />
   </head>
   <body>
