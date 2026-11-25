@@ -1,32 +1,26 @@
 ---
-import Hero from '../components/hero.astro';
 import Layout from '../components/layout.astro';
-import Companies from '../components/companies.astro';
-import WhoAmI from '../components/who-am-i.astro';
-import Comparison from '../components/comparison.astro';
-import HowItWorks from '../components/how-it-works.astro';
-import FAQ from '../components/faq.astro';
-import Button from '../components/ui/button.astro';
-import Testimonials from '../components/testimonials.astro';
-import Pricing from '../components/pricing.astro';
+import Hero from '../components/sections/hero.astro';
+import Stats from '../components/sections/stats.astro';
+import Problem from '../components/sections/problem.astro';
+import HowItWorks from '../components/sections/how-it-works.astro';
+import Pricing from '../components/sections/pricing.astro';
+import Projects from '../components/sections/projects.astro';
+import Testimonial from '../components/sections/testimonial.astro';
+import Audience from '../components/sections/audience.astro';
+import FAQ from '../components/sections/faq.astro';
+import FinalCta from '../components/sections/final-cta.astro';
 ---
 
 <Layout>
   <Hero />
-  <Companies />
-  <WhoAmI />
-  <Comparison />
+  <Stats />
+  <Problem />
   <HowItWorks />
   <Pricing />
-  <Testimonials />
+  <Projects />
+  <Testimonial />
+  <Audience />
   <FAQ />
-  <div
-    id='contatti'
-    class='relative top-20 px-container rounded-xl bg-linear-to-l from-primary-dark to-primary text-white flex flex-col gap-4 items-center text-center px-4 py-8 md:py-16'>
-    <h2>Prenota una call di 45 minuti</h2>
-    <p class='text-gray-100'>Scegli quello che fa per te. Nessun vincolo, nessuna sorpresa.</p>
-    <Button variant='secondary' to='https://calendly.com/santoriggio-info/30min' target='_blank' rel='noopener noreferrer'>
-      Prenota una call
-    </Button>
-  </div>
+  <FinalCta />
 </Layout>

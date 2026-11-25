@@ -1,0 +1,72 @@
+---
+interface Props {
+  name: 'arrow-right' | 'check' | 'x' | 'image' | 'plus' | 'minus' | 'menu';
+  size?: number;
+  class?: string;
+}
+
+const sizes = {
+  'arrow-right': 20,
+  check: 16,
+  x: 16,
+  image: 32,
+  plus: 24,
+  minus: 24,
+  menu: 24,
+} as const;
+
+const { name, size = sizes[name], class: className } = Astro.props;
+const svgClass = ['icon', `icon-${name}`, className];
+---
+
+{
+  name === 'arrow-right' && (
+    <svg class:list={svgClass} width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  )
+}
+{
+  name === 'check' && (
+    <svg class:list={svgClass} width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  )
+}
+{
+  name === 'x' && (
+    <svg class:list={svgClass} width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M7 7l10 10M17 7L7 17" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+    </svg>
+  )
+}
+{
+  name === 'image' && (
+    <svg class:list={svgClass} width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.6" />
+      <circle cx="9" cy="10" r="2" stroke="currentColor" stroke-width="1.6" />
+      <path d="M21 16l-5-5-9 9" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+    </svg>
+  )
+}
+{
+  name === 'minus' && (
+    <svg class:list={svgClass} width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    </svg>
+  )
+}
+{
+  name === 'plus' && (
+    <svg class:list={svgClass} width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    </svg>
+  )
+}
+{
+  name === 'menu' && (
+    <svg class:list={svgClass} width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    </svg>
+  )
+}

@@ -1,0 +1,24 @@
+---
+import Stat from '../stat.astro';
+
+const stats = [
+  { value: '15+', label: 'app sviluppate da zero' },
+  { value: '20+', label: 'app gestite in produzione' },
+  { value: '10% → 40%', label: 'utenti che creano contenuti su Seetua' },
+  { value: '14 giorni', label: 'dalla prima chat alla prima riga di codice' },
+];
+---
+
+<section class="section-stats" aria-label="Numeri">
+  <div class="page-wrap">
+    <ul class="stats-grid">
+      {
+        stats.map((stat) => (
+          <li>
+            <Stat value={stat.value} label={stat.label} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

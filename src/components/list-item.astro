@@ -1,0 +1,16 @@
+---
+import Icon from './icon.astro';
+
+interface Props {
+  tone: 'yes' | 'no';
+}
+
+const { tone } = Astro.props;
+---
+
+<div class="list-item">
+  <span class:list={['badge', tone === 'yes' ? 'badge-yes' : 'badge-no']} aria-hidden="true">
+    <Icon name={tone === 'yes' ? 'check' : 'x'} />
+  </span>
+  <p class="text-body text-ink-700"><slot /></p>
+</div>

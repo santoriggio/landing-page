@@ -1,0 +1,79 @@
+---
+import Icon from './icon.astro';
+import Button from './button.astro';
+import { site } from '../config';
+
+const links = [
+  { href: '/#come-funziona', label: 'Come funziona' },
+  { href: '/#prezzi', label: 'Prezzi' },
+  { href: '/#progetti', label: 'Progetti' },
+  { href: '/#faq', label: 'FAQ' },
+];
+---
+
+<header class="site-header">
+  <div class="page-wrap nav-bar">
+    <a class="logo-link" href="/">
+      <img class="logo-mark" src="/logo.svg" alt="" width="32" height="32" />
+      <span class="wordmark">Santo Riggio</span>
+    </a>
+    <Button class="desktop-cta" variant="primary" href={site.bookingUrl} icon={false}>Prenota una call</Button>
+    <button
+      id="nav-toggle"
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+      aria-label="Apri il menu">
+      <Icon name="menu" />
+      <Icon name="x" size={24} />
+    </button>
+  </div>
+  <nav id="nav-menu" class="nav-menu" aria-label="Sezioni">
+    <div class="page-wrap nav-menu-inner">
+      {links.map((link) => (
+        <a class="nav-link text-small" href={link.href}>{link.label}</a>
+      ))}
+      <Button class="nav-menu-cta btn-block" variant="primary" href={site.bookingUrl} icon={false}>
+        Prenota una call
+      </Button>
+    </div>
+  </nav>
+  <noscript>
+    <style>
+      .nav-menu { display: block; }
+      .nav-toggle { display: none; }
+    </style>
+  </noscript>
+</header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('#nav-toggle');
+  const menu = document.querySelector<HTMLElement>('#nav-menu');
+
+  if (toggle && menu) {
+    const desktop = window.matchMedia('(min-width: 768px)');
+
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
+      menu.classList.toggle('is-open', open);
+    };
+
+    toggle.addEventListener('click', () => {
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setOpen(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    });
+
+    desktop.addEventListener('change', (event) => {
+      if (event.matches) setOpen(false);
+    });
+  }
+</script>

@@ -1,0 +1,38 @@
+---
+import ListItem from '../list-item.astro';
+
+const yes = [
+  "Sei una startup con budget per sviluppare un'app",
+  'Sei una PMI che cerca direzione tecnica',
+  'Hai un team con junior da far crescere',
+];
+
+const no = ['Il progetto ha budget zero', 'Sei una corporate da 100+ persone', "Sei un'agenzia"];
+---
+
+<section class="section" aria-labelledby="per-chi-title">
+  <div class="page-wrap section-stack">
+    <div class="block-head">
+      <p class="text-overline text-brand-700">Per chi è</p>
+      <h2 id="per-chi-title" class="text-h2 text-ink-900">Lavoro bene con chi vuole muoversi in fretta.</h2>
+    </div>
+    <div class="cols">
+      <article class="panel panel-yes">
+        <h3 class="text-h3 text-ink-900">Fa per te se</h3>
+        <ul class="panel-list">
+          {yes.map((item) => (
+            <li><ListItem tone="yes">{item}</ListItem></li>
+          ))}
+        </ul>
+      </article>
+      <article class="panel panel-no">
+        <h3 class="text-h3 text-ink-900">Non fa per te se</h3>
+        <ul class="panel-list">
+          {no.map((item) => (
+            <li><ListItem tone="no">{item}</ListItem></li>
+          ))}
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

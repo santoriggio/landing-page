@@ -1,0 +1,19 @@
+---
+import ProjectCard from '../project-card.astro';
+import { projects } from '../../data/projects';
+---
+
+<section class="section section-alt" id="progetti" aria-labelledby="progetti-title">
+  <div class="page-wrap section-stack">
+    <div class="block-head is-narrow">
+      <p class="text-overline text-brand-700">Progetti</p>
+      <h2 id="progetti-title" class="text-h2 text-ink-900">App vere, in mano a utenti veri.</h2>
+      <p class="text-body-l text-ink-500">
+        Tre progetti a cui ho lavorato, raccontati da me. Le testimonianze dei founder arriveranno presto.
+      </p>
+    </div>
+    <div class="project-grid">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </div>
+</section>

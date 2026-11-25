@@ -1,0 +1,35 @@
+---
+import StepCard from '../step-card.astro';
+
+const steps = [
+  {
+    number: '1',
+    title: 'Mi scrivi',
+    body: 'Due righe sul progetto, in DM su LinkedIn o prenotando una call qui sotto.',
+  },
+  {
+    number: '2',
+    title: 'Call conoscitiva',
+    body: 'Capiamo cosa serve davvero. Spesso è un MVP, non 47 feature.',
+  },
+  {
+    number: '3',
+    title: 'Prova o mensile',
+    body: 'Parti con 7 giorni di prova o direttamente col mensile. Se non funziona, disdici.',
+  },
+];
+---
+
+<section class="section section-alt" id="come-funziona" aria-labelledby="come-funziona-title">
+  <div class="page-wrap section-stack">
+    <div class="block-head">
+      <p class="text-overline text-brand-700">Come funziona</p>
+      <h2 id="come-funziona-title" class="text-h2 text-ink-900">Tre passaggi, nessun contratto infinito.</h2>
+    </div>
+    <div class="steps">
+      {steps.map((step) => (
+        <StepCard number={step.number} title={step.title} body={step.body} />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,60 @@
+---
+import ImagePlaceholder from '../image-placeholder.astro';
+import { testimonials } from '../../data/testimonials';
+
+const [only] = testimonials;
+const single = testimonials.length < 2;
+---
+
+<section class="section section-soft" aria-label={single ? 'Testimonianza' : 'Testimonianze'}>
+  {
+    single && only ? (
+      <div class="page-wrap testimonial">
+        <p class="text-mark" aria-hidden="true">
+          “
+        </p>
+        <blockquote>
+          <p class="text-quote text-ink-900">{only.quote}</p>
+        </blockquote>
+        <div class="author">
+          {only.photo ? (
+            <img class="author-photo" src={only.photo} alt="" width="56" height="56" />
+          ) : (
+            <ImagePlaceholder frame="avatar" />
+          )}
+          <div class="author-text">
+            <p class="text-body-strong text-ink-900">{only.name}</p>
+            <p class="text-small text-ink-500">{only.role}</p>
+            <p class="text-small text-ink-500">{only.source}</p>
+          </div>
+        </div>
+      </div>
+    ) : (
+      <div class="page-wrap">
+        <ul class="testimonial-grid">
+          {testimonials.map((item) => (
+            <li>
+              <article class="testimonial-card">
+                <blockquote>
+                  <p class="text-quote text-ink-900">{item.quote}</p>
+                </blockquote>
+                <div class="author">
+                  {item.photo ? (
+                    <img class="author-photo" src={item.photo} alt="" width="56" height="56" />
+                  ) : (
+                    <ImagePlaceholder frame="avatar" />
+                  )}
+                  <div class="author-text">
+                    <p class="text-body-strong text-ink-900">{item.name}</p>
+                    <p class="text-small text-ink-500">{item.role}</p>
+                    <p class="text-small text-ink-500">{item.source}</p>
+                  </div>
+                </div>
+              </article>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+</section>

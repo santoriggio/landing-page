@@ -1,104 +1,128 @@
 ---
 import Layout from '../components/layout.astro';
+import { site } from '../config';
 ---
 
-<Layout title='Privacy Policy'>
-  <div class='px-container py-container'>
-    <h1 class='text-4xl font-bold mb-8'>Privacy Policy</h1>
+<Layout title="Privacy Policy" noindex>
+  <div class="page-wrap legal legal-doc">
+    <p class="legal-back text-body">
+      <a href="/">Torna alla home</a>
+    </p>
+    <h1 class="text-h2">Privacy Policy</h1>
+    <p class="legal-updated text-body text-ink-500">Ultimo aggiornamento: 25 novembre 2026</p>
 
-    <section class='mb-8'>
-      <h2 class='text-2xl font-semibold mb-4'>1. Titolare del Trattamento</h2>
-      <p>
-        Santo Riggio<br />
-        Email: info@santoriggio.it<br />
-        P.IVA: 12167160964
+    <section>
+      <h2 class="text-h3">1. Titolare del trattamento</h2>
+      <p class="text-body">
+        Santo Riggio, P. IVA {site.vatNumber}<br />
+        Email: <a href={`mailto:${site.email}`}>{site.email}</a>
       </p>
     </section>
 
-    <section class='mb-8'>
-      <h2 class='text-2xl font-semibold mb-4'>2. Dati Raccolti</h2>
-      <p>Possiamo raccogliere le seguenti categorie di dati personali:</p>
-      <ul class='list-disc pl-6 mt-4 gap-2 flex flex-col'>
-        <li>Dati di contatto (nome, email, numero di telefono);</li>
-        <li>
-          Dati di navigazione (indirizzo IP, dati relativi ai cookie, informazioni sul dispositivo e sul
-          browser);
+    <section>
+      <h2 class="text-h3">2. Quali dati raccolgo</h2>
+      <p class="text-body">
+        Questo sito non usa form di contatto, newsletter, cookie di profilazione né strumenti di analisi.
+      </p>
+      <p class="text-body">I dati personali che posso trattare sono:</p>
+      <ul>
+        <li class="text-body">
+          Dati tecnici di navigazione: indirizzo IP, tipo di browser e dispositivo, pagine richieste. Sono
+          registrati automaticamente dal servizio di hosting per far funzionare il sito e proteggerlo da abusi.
         </li>
-        <li>
-          Dati forniti volontariamente dall'utente (richieste di informazioni, compilazione di form di
-          contatto).
+        <li class="text-body">
+          Dati che mi invii tu: nome, email ed eventuali informazioni sul tuo progetto, quando mi scrivi via
+          email o su LinkedIn, o quando prenoti una call conoscitiva.
         </li>
       </ul>
     </section>
 
-    <section class='mb-8'>
-      <h2 class='text-2xl font-semibold mb-4'>3. Finalità del Trattamento</h2>
-      <p>I dati personali raccolti vengono utilizzati per:</p>
-      <ul class='list-disc pl-6 mt-4 gap-2 flex flex-col'>
-        <li>Fornire i nostri servizi e rispondere alle richieste degli utenti;</li>
-        <li>Migliorare l'esperienza di navigazione sul nostro Sito;</li>
-        <li>Inviare comunicazioni commerciali e promozionali previo consenso esplicito;</li>
-        <li>Assicurare la sicurezza del Sito e prevenire eventuali abusi.</li>
-      </ul>
-    </section>
-
-    <section class='mb-8'>
-      <h2 class='text-2xl font-semibold mb-4'>4. Base Giuridica del Trattamento</h2>
-      <p>Il trattamento dei dati personali si basa su:</p>
-      <ul class='list-disc pl-6 mt-4 gap-2 flex flex-col'>
-        <li>L'esecuzione di un contratto o di misure precontrattuali richieste dall'utente;</li>
-        <li>Il consenso esplicito per finalità di marketing e newsletter;</li>
-        <li>Il legittimo interesse del titolare a migliorare il servizio e garantire la sicurezza.</li>
-      </ul>
-    </section>
-
-    <section class='mb-8'>
-      <h2 class='text-2xl font-semibold mb-4'>5. Conservazione dei Dati</h2>
-      <p>
-        I dati personali saranno conservati per il tempo necessario al raggiungimento delle finalità per cui
-        sono stati raccolti, salvo obblighi di legge che ne impongano una conservazione più lunga.
+    <section>
+      <h2 class="text-h3">3. Prenotazione delle call</h2>
+      <p class="text-body">
+        Le call si prenotano su Calendly, un servizio esterno: cliccando su "Prenota una call" si apre la pagina
+        di Calendly in una nuova scheda. Fino a quel momento questo sito non carica nulla da Calendly. I dati
+        che inserisci (nome, email, risposte alle domande del modulo) sono raccolti da Calendly secondo la sua
+        privacy policy e mi vengono trasmessi per organizzare la call. La call si svolge su Google Meet.
       </p>
     </section>
 
-    <section class='mb-8'>
-      <h2 class='text-2xl font-semibold mb-4'>6. Condivisione dei Dati</h2>
-      <p>I dati personali potranno essere condivisi con:</p>
-      <ul class='list-disc pl-6 mt-4 gap-2 flex flex-col'>
-        <li>
-          Forntitori di servizi terzi che supportano Santo Riggio (es. hosting, analisi dati, servizi di
-          marketing);
+    <section>
+      <h2 class="text-h3">4. Perché tratto i tuoi dati e su quale base</h2>
+      <ul>
+        <li class="text-body">
+          Rispondere alle tue richieste e organizzare la call conoscitiva: misure precontrattuali richieste da
+          te (art. 6.1.b GDPR).
         </li>
-        <li>Autorità competenti, se richiesto dalla legge.</li>
+        <li class="text-body">
+          Gestire il rapporto di lavoro, se diventi cliente: esecuzione del contratto e obblighi di legge, ad
+          esempio fiscali (art. 6.1.b e 6.1.c GDPR).
+        </li>
+        <li class="text-body">
+          Garantire il funzionamento e la sicurezza del sito: legittimo interesse (art. 6.1.f GDPR).
+        </li>
       </ul>
-      <p class='mt-4'>Non vendiamo o cediamo i dati personali a terzi per scopi di marketing.</p>
+      <p class="text-body">Non uso i tuoi dati per marketing e non li vendo né li cedo a terzi.</p>
     </section>
 
-    <section class='mb-8'>
-      <h2 class='text-2xl font-semibold mb-4'>7. Diritti dell'Utente</h2>
-      <p>L'utente ha il diritto di:</p>
-      <ul class='list-disc pl-6 mt-4 gap-2 flex flex-col'>
-        <li>Accedere ai propri dati personali;</li>
-        <li>Richiedere la rettifica o la cancellazione dei dati;</li>
-        <li>Opporsi al trattamento per motivi legittimi;</li>
-        <li>Chiedere la limitazione del trattamento;</li>
-        <li>Richiedere la portabilità dei dati.</li>
+    <section>
+      <h2 class="text-h3">5. Per quanto tempo li conservo</h2>
+      <ul>
+        <li class="text-body">
+          Richieste e prenotazioni che non diventano un rapporto di lavoro: fino a 24 mesi dall'ultimo contatto.
+        </li>
+        <li class="text-body">Documenti contrattuali e fiscali dei clienti: 10 anni, come previsto dalla legge.</li>
+        <li class="text-body">
+          Dati tecnici di navigazione: per il tempo stabilito dal servizio di hosting, di norma pochi giorni.
+        </li>
       </ul>
-      <p class='mt-4'>Le richieste possono essere inviate via email a [INSERISCI EMAIL].</p>
     </section>
 
-    <section class='mb-8'>
-      <h2 class='text-2xl font-semibold mb-4'>8. Cookie Policy</h2>
-      <p>
-        Il nostro Sito utilizza cookie per migliorare l'esperienza di navigazione. Per maggiori informazioni,
-        consulta la nostra <a href='/cookie-policy' class='underline text-primary'>Cookie Policy</a>.
+    <section>
+      <h2 class="text-h3">6. Chi può trattare i dati</h2>
+      <p class="text-body">
+        Fornitori che mi aiutano a erogare il servizio, nominati responsabili del trattamento dove necessario:
+      </p>
+      <ul>
+        <li class="text-body">Cloudflare, Inc. (hosting del sito)</li>
+        <li class="text-body">Calendly LLC (prenotazione delle call)</li>
+        <li class="text-body">Google LLC (videochiamate con Google Meet)</li>
+        <li class="text-body">Aruba S.p.A. (posta elettronica)</li>
+      </ul>
+      <p class="text-body">
+        Cloudflare, Calendly e Google hanno sede negli Stati Uniti. Il trasferimento avviene sulla base
+        dell'EU-U.S. Data Privacy Framework o delle clausole contrattuali standard approvate dalla Commissione
+        Europea. Aruba ha sede in Italia.
+      </p>
+      <p class="text-body">Posso comunicare i dati alle autorità competenti, se richiesto dalla legge.</p>
+    </section>
+
+    <section>
+      <h2 class="text-h3">7. Cookie</h2>
+      <p class="text-body">
+        Questo sito non installa cookie di profilazione né cookie di terze parti. Font e immagini sono serviti
+        direttamente dal sito. Calendly, essendo un sito esterno, può usare i propri cookie secondo la sua
+        policy.
       </p>
     </section>
 
-    <section class='mb-8'>
-      <h2 class='text-2xl font-semibold mb-4'>9. Modifiche alla Privacy Policy</h2>
-      <p>
-        Ci riserviamo il diritto di modificare questa Privacy Policy in qualsiasi momento. Le modifiche
-        saranno pubblicate su questa pagina con data di aggiornamento.
+    <section>
+      <h2 class="text-h3">8. I tuoi diritti</h2>
+      <p class="text-body">
+        Puoi chiedere in qualsiasi momento di accedere ai tuoi dati, rettificarli, cancellarli, limitarne il
+        trattamento, opporti al trattamento o riceverli in un formato portabile (artt. 15-22 GDPR). Scrivi a
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+      <p class="text-body">
+        Hai anche il diritto di proporre reclamo al Garante per la protezione dei dati personali
+        (<a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a>).
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-h3">9. Modifiche</h2>
+      <p class="text-body">
+        Potrei aggiornare questa informativa. La data dell'ultimo aggiornamento è indicata in cima alla pagina.
       </p>
     </section>
   </div>

@@ -1,0 +1,40 @@
+---
+import type { Project } from '../data/projects';
+import Button from './button.astro';
+import ImagePlaceholder from './image-placeholder.astro';
+import Stat from './stat.astro';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<article class="project-card">
+  <div class="project-media">
+    {
+      project.image ? (
+        <img
+          class="project-photo"
+          src={project.image.src}
+          alt={project.image.alt}
+          width={project.image.width}
+          height={project.image.height}
+          loading="lazy"
+        />
+      ) : (
+        <ImagePlaceholder frame="project" label={project.imageLabel} />
+      )
+    }
+  </div>
+  <p class="project-meta text-small text-ink-500">{project.meta}</p>
+  <h3 class="project-name text-h3 text-ink-900">{project.name}</h3>
+  <div class="project-body">
+    <p class="project-account text-body text-ink-700">{project.account}</p>
+    {project.result && <Stat value={project.result.value} label={project.result.label} />}
+    {project.link && (
+      <Button class="project-ghost" variant="ghost" href={project.link.href}>{project.link.label}</Button>
+    )}
+  </div>
+</article>

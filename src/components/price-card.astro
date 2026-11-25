@@ -1,0 +1,52 @@
+---
+import Button from './button.astro';
+import ListItem from './list-item.astro';
+
+interface Props {
+  tag: string;
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  features: string[];
+  cta: string;
+  href: string;
+  variant: 'primary' | 'secondary';
+  highlighted?: boolean;
+  class?: string;
+}
+
+const {
+  tag,
+  name,
+  price,
+  period,
+  description,
+  features,
+  cta,
+  href,
+  variant,
+  highlighted = false,
+  class: className,
+} = Astro.props;
+---
+
+<article class:list={['price-card', { 'is-highlighted': highlighted }, className]}>
+  <p class="price-tag text-overline">{tag}</p>
+  <h3 class="text-h3 text-ink-900">{name}</h3>
+  <p class="price-line">
+    <span class="text-price text-ink-900">{price}</span>
+    <span class="text-body text-ink-500">{period}</span>
+  </p>
+  <p class="text-body text-ink-500">{description}</p>
+  <ul class="feature-list">
+    {
+      features.map((feature) => (
+        <li>
+          <ListItem tone="yes">{feature}</ListItem>
+        </li>
+      ))
+    }
+  </ul>
+  <Button variant={variant} href={href} class="btn-block">{cta}</Button>
+</article>

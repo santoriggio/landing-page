@@ -1,0 +1,16 @@
+---
+import Icon from './icon.astro';
+
+interface Props {
+  label?: string;
+  frame: 'project' | 'avatar';
+}
+
+const { label, frame } = Astro.props;
+const round = frame === 'avatar';
+---
+
+<div class:list={['ph', `ph-${frame}`, { 'ph-round': round }]}>
+  <Icon name="image" size={round ? 20 : 32} />
+  {label && <span class="text-small">{label}</span>}
+</div>

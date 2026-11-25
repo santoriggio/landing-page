@@ -1,0 +1,53 @@
+---
+import PriceCard from '../price-card.astro';
+import { site } from '../../config';
+---
+
+<section class="section" id="prezzi" aria-labelledby="prezzi-title">
+  <div class="page-wrap section-stack pricing">
+    <div class="block-head is-center is-center-desktop">
+      <p class="text-overline text-brand-700">Prezzi</p>
+      <h2 id="prezzi-title" class="text-h2 text-ink-900">Prezzi chiari, niente sorprese.</h2>
+      <p class="text-body-l text-ink-500">Sai quanto paghi e cosa ricevi prima di iniziare.</p>
+    </div>
+    <div class="price-row">
+      <PriceCard
+        tag="Per iniziare"
+        name="Prova di 7 giorni"
+        price={site.prices.trial}
+        period="una tantum"
+        description="Una settimana di lavoro vero sul tuo progetto, per capire se lavoriamo bene insieme."
+        features={[
+          'Call conoscitiva per fissare le priorità',
+          'Lavoro reale sul tuo codice o da zero',
+          'Nessun impegno dopo la prova',
+          'Se continui, i 700 € si scalano dal primo mese',
+        ]}
+        cta="Inizia la prova"
+        href={site.bookingUrl}
+        variant="secondary"
+      />
+      <PriceCard
+        class="price-monthly"
+        tag="Abbonamento"
+        name="Mensile"
+        price={site.prices.monthly}
+        period="/ mese"
+        description="Sviluppo continuativo della tua app iOS e Android, con una sola fattura al mese."
+        features={[
+          'App iOS e Android in React Native',
+          'Pubblicazione su App Store e Play Store',
+          'Direzione tecnica e mentoring dei junior',
+          'Disdici quando vuoi',
+        ]}
+        cta="Prenota una call"
+        href={site.bookingUrl}
+        variant="primary"
+        highlighted
+      />
+    </div>
+    <p class="price-note text-small text-ink-500">
+      Fattura senza IVA (regime forfettario). Per riferimento: un MVP completo di solito costa tra 5.000 e 15.000 €, in base alle funzionalità.
+    </p>
+  </div>
+</section>

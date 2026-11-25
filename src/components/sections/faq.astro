@@ -1,0 +1,59 @@
+---
+import FaqItem from '../faq-item.astro';
+
+const items = [
+  {
+    question: "Cosa include l'abbonamento?",
+    answer:
+      "Lo sviluppo della tua app: design in Figma, sviluppo, pubblicazione su App Store e Google Play e direzione tecnica. Non c'è un monte ore e non sono un dipendente a tempo pieno: prendo in carico le attività, le porto a termine e passo alla successiva. Lavoro per obiettivi, non a ore. Se ti sembro lento, disdici.",
+  },
+  {
+    question: 'Quanto costa?',
+    answer:
+      "La prova di 7 giorni costa 700 €, l'abbonamento 2.500 € al mese, senza IVA (regime forfettario). Un MVP completo di solito richiede tra 2 e 6 mesi, cioè tra 5.000 e 15.000 €.",
+  },
+  {
+    question: 'Come funziona la prova di 7 giorni?',
+    answer:
+      'Lavoro una settimana sul tuo progetto, con consegne vere. Se poi continui, i 700 € vengono scalati dal primo mese: per completarlo paghi 1.800 €. Se non continui, nessun impegno.',
+  },
+  {
+    question: 'Il codice è mio? E se disdico?',
+    answer:
+      'Sì, dal primo giorno. Codice, account Apple e Google e credenziali restano tuoi: io lavoro come sviluppatore sui tuoi strumenti. Se disdici, tieni tutto.',
+  },
+  {
+    question: 'Come seguo i progressi?',
+    answer:
+      'Lavoriamo a milestone: se hai già una roadmap parto da lì, altrimenti la costruiamo insieme. Ogni settimana ci sentiamo per fare il punto su cosa è stato fatto e cosa viene dopo.',
+  },
+  {
+    question: 'Quanti clienti segui contemporaneamente?',
+    answer: "Pochi, per dare a ognuno l'attenzione che serve. Per questo i posti sono limitati.",
+  },
+  {
+    question: 'Ti occupi anche del design? E se il progetto cresce?',
+    answer:
+      "Sono uno sviluppatore, ma per partire non ti serve un team: disegno le schermate in Figma in base alle tue richieste, sistemiamo insieme quello che non ti convince e porto avanti l'intero progetto. Se il progetto cresce e servono più risorse, posso coinvolgere collaboratori molto validi che lavorano al mio fianco.",
+  },
+  {
+    question: 'Lavori anche su app già esistenti?',
+    answer:
+      'Sì, sia da zero sia su codice esistente. Nella mia carriera ho gestito più di 20 app in produzione, quindi so come mettere mano a un progetto avviato senza rompere quello che funziona.',
+  },
+];
+---
+
+<section class="section section-alt" id="faq" aria-labelledby="faq-title">
+  <div class="page-wrap section-stack">
+    <div class="block-head is-center is-center-desktop">
+      <p class="text-overline text-brand-700">FAQ</p>
+      <h2 id="faq-title" class="text-h2 text-ink-900">Domande frequenti</h2>
+    </div>
+    <div class="faq-list">
+      {items.map((item) => (
+        <FaqItem question={item.question} answer={item.answer} />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+---
+import ListItem from '../list-item.astro';
+
+const traditional = [
+  'Mesi di selezione per trovare la persona giusta',
+  'Contratti da 25 pagine, e uscirne è peggio',
+  'Costi fissi anche quando il lavoro non c\'è',
+  '8 ore al giorno, di cui poche produttive',
+];
+
+const subscription = [
+  'Dalla prima chat al codice in 14 giorni',
+  'Una fattura al mese, zero burocrazia',
+  'Lavoro le ore che servono, non 8 fisse',
+  'Non funziona? Disdici',
+];
+---
+
+<section class="section" aria-labelledby="problema-title">
+  <div class="page-wrap section-stack">
+    <div class="block-head is-narrow">
+      <p class="text-overline text-brand-700">Perché ad abbonamento</p>
+      <h2 id="problema-title" class="text-h2 text-ink-900">Assumere uno sviluppatore è lento, rigido e costoso.</h2>
+      <p class="text-body-l text-ink-500">
+        Il modello tradizionale non funziona per chi deve lanciare un'app senza un team tech interno.
+      </p>
+    </div>
+    <div class="cols">
+      <article class="panel panel-no">
+        <h3 class="text-h3 text-ink-900">Assunzione tradizionale</h3>
+        <ul class="panel-list">
+          {traditional.map((item) => (
+            <li><ListItem tone="no">{item}</ListItem></li>
+          ))}
+        </ul>
+      </article>
+      <article class="panel panel-yes">
+        <h3 class="text-h3 text-ink-900">Con l'abbonamento</h3>
+        <ul class="panel-list">
+          {subscription.map((item) => (
+            <li><ListItem tone="yes">{item}</ListItem></li>
+          ))}
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,72 +1,69 @@
 ---
 import '../global.css';
-import Header from './header.astro';
+import Nav from './nav.astro';
 import Footer from './footer.astro';
-import CookieConsent from './cookie-consent.astro';
 
-const { title = 'Home', description = 'Semplifica il tuo sviluppo mobile con il modello di abbonamento di Santo Riggio. Approfitta di consegne rapide, prezzi chiari e qualità garantita senza problemi di assunzione.' } =
-  Astro.props;
-const fullTitle = `Santo Riggio - ${title}`;
+interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = 'App iOS e Android in abbonamento',
+  description = 'Sviluppo app in React Native per startup e PMI. Una fattura al mese, niente contratti da 25 pagine, niente 8 ore fisse.',
+  noindex = false,
+} = Astro.props;
+
+const fullTitle = `Santo Riggio — ${title}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const image = new URL('/og-graph.webp', Astro.site);
+const analyticsSrc = import.meta.env.PUBLIC_ANALYTICS_SRC;
 ---
 
 <!doctype html>
-<html lang='it' class='scroll-smooth'>
+<html lang="it">
   <head>
-    <meta charset='UTF-8' />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/x-icon' href='/favicon.ico' />
-    <meta name='generator' content={Astro.generator} />
-    <meta name='description' content={description} />
-    <meta name='author' content='Santo Riggio' />
-
-    <!-- Open Graph / Facebook -->
-    <meta property='og:type' content='website' />
-    <meta property='og:url' content='https://www.santoriggio.it/' />
-    <meta property='og:title' content={fullTitle} />
-    <meta property='og:description' content={description} />
-    <meta property='og:image' content='https://www.santoriggio.it/og-graph.webp' />
-
-    <!-- Twitter -->
-    <meta property='twitter:card' content='summary_large_image' />
-    <meta property='twitter:url' content='https://www.santoriggio.it/' />
-    <meta property='twitter:title' content={fullTitle} />
-    <meta property='twitter:description' content={description} />
-    <meta property='twitter:image' content='https://www.santoriggio.it/og-graph.webp' />
-
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{fullTitle}</title>
-    <link rel='preload' href='/fonts/archivo-variable.ttf' as='font' type='font/ttf' crossorigin />
-    <script type="application/ld+json">
-      {
-        JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Santo Riggio",
-          "url": "https://www.santoriggio.it",
-          "sameAs": [
-            "https://www.linkedin.com/in/santoriggio/"
-          ],
-          "jobTitle": "Software Engineer",
-          "description": "Sviluppatore mobile specializzato in React Native e soluzioni mobile moderne. Offro servizi di sviluppo in abbonamento per startup e software house.",
-          "knowsAbout": [
-            "React Native", "TypeScript", "Sviluppo Mobile", "Mobile Development"
-          ],
-            "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "IT",
-            "addressLocality": "Cerro Maggiore",
-            "addressRegion": "MI",
-            "postalCode": "20023",
-            "streetAddress": "Via Felice Gaio, 3/4A"
-            },
-          "email": "mailto:info@santoriggio.it"
-        })
-      }
-    </script>
-    <CookieConsent />
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:site_name" content="Santo Riggio" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <link rel="preload" href="/fonts/plus-jakarta-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/plus-jakarta-sans-800.woff2" as="font" type="font/woff2" crossorigin />
+    <!--
+      Privacy-friendly analytics (Plausible or Umami). Leave PUBLIC_ANALYTICS_SRC unset.
+      Plausible also reads PUBLIC_ANALYTICS_DOMAIN. Umami also reads PUBLIC_ANALYTICS_WEBSITE_ID.
+    -->
+    {
+      analyticsSrc && (
+        <script
+          is:inline
+          defer
+          src={analyticsSrc}
+          data-domain={import.meta.env.PUBLIC_ANALYTICS_DOMAIN}
+          data-website-id={import.meta.env.PUBLIC_ANALYTICS_WEBSITE_ID}
+        />
+      )
+    }
   </head>
   <body>
-    <Header />
-    <main>
+    <a class="skip-link text-small" href="#contenuto">Vai al contenuto</a>
+    <Nav />
+    <main id="contenuto">
       <slot />
     </main>
     <Footer />

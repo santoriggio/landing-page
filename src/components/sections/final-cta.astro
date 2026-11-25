@@ -1,0 +1,21 @@
+---
+import Button from '../button.astro';
+import { site } from '../../config';
+---
+
+<section class="section-cta" aria-labelledby="cta-title">
+  <div class="page-wrap">
+    <div class="cta-box">
+      <div class="cta-person">
+        <img class="cta-photo" src="/santo.jpg" alt="Santo Riggio" width="800" height="800" />
+        <p class="text-small text-ink-900">Ti risponde Santo, di solito entro 24 ore</p>
+      </div>
+      <h2 id="cta-title" class="text-h2 text-ink-900">Hai un'app da far partire?</h2>
+      <p class="text-body-l text-ink-900">Scrivimi due righe sul progetto e fissiamo una call.</p>
+      <Button variant="secondary" href={site.bookingUrl}>Prenota una call</Button>
+      <p class="text-small text-ink-900">
+        oppure scrivimi su <a class="cta-link" href={site.linkedinUrl} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </p>
+    </div>
+  </div>
+</section>
