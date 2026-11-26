@@ -253,7 +253,7 @@ Text in `[square brackets]` is placeholder content and must render as-is.
 ## 7. Reference images
 
 Sharing and unknown URLs:
-- Open Graph image: `public/og-image.png`, 1200×627 PNG, absolute URL `https://www.santoriggio.it/og-image.png`. `twitter:card` is `summary_large_image`.
+- Open Graph image: `public/og-image.png`, 1200×627 PNG, generated at the start of `yarn build` by `scripts/og-image.mjs` (current headline and these tokens, not a screenshot). Absolute URL `https://www.santoriggio.it/og-image.png`. `twitter:card` is `summary_large_image`.
 - `public/robots.txt` allows all crawlers and points at `https://www.santoriggio.it/sitemap-index.xml`. The head also links that sitemap. `@astrojs/sitemap` includes `/` and `/privacy-policy`.
 - Unknown URLs use `src/pages/404.astro`: H1 "Pagina non trovata", one Body line, Primary button "Torna alla home" → `/`, `noindex`.
 - `public/apple-touch-icon.png` is 180×180, from `public/logo.svg` on white.
