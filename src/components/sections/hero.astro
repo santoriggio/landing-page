@@ -1,6 +1,9 @@
 ---
+import { Picture } from 'astro:assets';
 import Button from '../button.astro';
 import { site } from '../../config';
+import heroDesktop from '../../assets/hero/hero-bg-desktop.png';
+import heroMobile from '../../assets/hero/hero-bg-mobile.png';
 
 const slots = site.availableSlots;
 const soldOut = slots <= 0;
@@ -12,15 +15,17 @@ const availability = soldOut
 ---
 
 <section class="section-hero">
-  <img
-    class="hero-bg-desktop"
-    src="/hero-bg-desktop.png"
+  <Picture
+    src={heroDesktop}
     alt=""
-    width="2880"
-    height="1440"
-    aria-hidden="true"
-    fetchpriority="high"
+    formats={['avif', 'webp']}
+    fallbackFormat="png"
+    widths={[1280, 1920, 2880]}
+    sizes="100vw"
+    quality={90}
     loading="eager"
+    fetchpriority="high"
+    pictureAttributes={{ class: 'hero-bg-desktop', 'aria-hidden': 'true' }}
   />
   <div class="page-wrap hero-layout">
     <div class="hero-copy">
@@ -39,13 +44,16 @@ const availability = soldOut
       <p class="hero-trust text-small text-ink-500">Si parte in 14 giorni · 7 giorni di prova</p>
     </div>
   </div>
-  <img
-    class="hero-bg-mobile"
-    src="/hero-bg-mobile.png"
+  <Picture
+    src={heroMobile}
     alt=""
-    width="1170"
-    height="1260"
-    aria-hidden="true"
+    formats={['avif', 'webp']}
+    fallbackFormat="png"
+    widths={[480, 780, 1170]}
+    sizes="100vw"
+    quality={90}
     loading="eager"
+    fetchpriority="high"
+    pictureAttributes={{ class: 'hero-bg-mobile', 'aria-hidden': 'true' }}
   />
 </section>

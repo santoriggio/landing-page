@@ -1,13 +1,16 @@
+import type { ImageMetadata } from 'astro';
+import consi from '../assets/projects/consi.png';
+import filmamo from '../assets/projects/filmamo.png';
+import seetua from '../assets/projects/seetua.png';
+
 export type Project = {
   name: string;
   meta: string;
   account: string;
   imageLabel: string;
   image?: {
-    src: string;
+    src: ImageMetadata;
     alt: string;
-    width: number;
-    height: number;
   };
   result?: {
     value: string;
@@ -27,10 +30,8 @@ export const projects: Project[] = [
       "Una palestra per allenare ogni giorno il proprio rapporto con i soldi. Seguo tutta la parte tecnica del prodotto. La sfida più grande è creare interfacce semplici e veloci che sappiano educare chi le usa. Dopo il redesign, Consi 2.0 è online.",
     imageLabel: 'Screenshot Consi',
     image: {
-      src: '/projects/consi.png',
+      src: consi,
       alt: "Tre schermate dell'app Consi: allenamento, FinFit Index e profilo",
-      width: 1600,
-      height: 1200,
     },
     link: {
       label: 'Scopri Consi',
@@ -44,10 +45,8 @@ export const projects: Project[] = [
       "Filmamo è il social network per chi ama il cinema: non solo un catalogo, ma un posto dove scoprire film e serie, condividere cosa guardi e confrontarti con altri appassionati. Ho lavorato allo sviluppo dell'app mobile.",
     imageLabel: 'Screenshot Filmamo',
     image: {
-      src: '/projects/filmamo.png',
+      src: filmamo,
       alt: "Tre schermate dell'app Filmamo: profilo, feed e ricerca",
-      width: 1600,
-      height: 1200,
     },
     link: {
       label: 'Scopri Filmamo',
@@ -61,10 +60,8 @@ export const projects: Project[] = [
       "Ho rifatto da zero il frontend: onboarding, feed, profilo, creazione contenuti e animazioni, con l'analisi dei dati su Amplitude. Con un A/B test sul feed (blur e una sola call to action) ho portato gli utenti che creano contenuti dal 10% al 40%.",
     imageLabel: 'Screenshot Seetua',
     image: {
-      src: '/projects/seetua.png',
+      src: seetua,
       alt: "Tre schermate dell'app Seetua: feed, profilo e messaggi",
-      width: 1600,
-      height: 1200,
     },
     result: {
       value: '10% → 40%',

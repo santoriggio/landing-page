@@ -17,7 +17,7 @@ const {
 
 const fullTitle = `Santo Riggio — ${title}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const image = new URL('/og-graph.webp', Astro.site);
+const image = 'https://www.santoriggio.it/og-image.png';
 const analyticsSrc = import.meta.env.PUBLIC_ANALYTICS_SRC;
 ---
 
@@ -31,6 +31,8 @@ const analyticsSrc = import.meta.env.PUBLIC_ANALYTICS_SRC;
     {noindex && <meta name="robots" content="noindex" />}
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="it_IT" />
     <meta property="og:site_name" content="Santo Riggio" />
@@ -38,6 +40,10 @@ const analyticsSrc = import.meta.env.PUBLIC_ANALYTICS_SRC;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Santo Riggio — App iOS e Android in abbonamento" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />

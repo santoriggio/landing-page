@@ -1,8 +1,12 @@
 ---
+import { Picture } from 'astro:assets';
 import type { Project } from '../data/projects';
 import Button from './button.astro';
 import ImagePlaceholder from './image-placeholder.astro';
 import Stat from './stat.astro';
+
+const projectSizes =
+  '(min-width: 1100px) calc((min(1200px, 100vw - 48px) - 48px) / 3 - 48px), calc(100vw - 96px)';
 
 interface Props {
   project: Project;
@@ -15,12 +19,15 @@ const { project } = Astro.props;
   <div class="project-media">
     {
       project.image ? (
-        <img
+        <Picture
           class="project-photo"
           src={project.image.src}
           alt={project.image.alt}
-          width={project.image.width}
-          height={project.image.height}
+          formats={['avif', 'webp']}
+          fallbackFormat="png"
+          widths={[480, 768, 1200, 1600]}
+          sizes={projectSizes}
+          quality={90}
           loading="lazy"
         />
       ) : (
