@@ -258,10 +258,10 @@ async function main() {
     throw new Error(`OG image is ${png.length} bytes, over the 300 KB limit`);
   }
 
-  const out = join(root, 'public/og-image.png');
+  const out = join(root, 'public/og-image-v2.png');
   await writeFile(out, png);
   console.log(
-    `og-image.png ${meta.width}×${meta.height}, ${png.length} bytes, headline ${headlineSize}px, shape ${shapeSize || 'none'}`,
+    `og-image-v2.png ${meta.width}×${meta.height}, ${png.length} bytes, headline ${headlineSize}px, shape ${shapeSize || 'none'}`,
   );
 }
 
